@@ -33,8 +33,8 @@ class contentApp (webapp.webApp):
                      htmlBody = "<html><body>PAGINA NO ENCONTRADA</body></html>"+ "\r\n" 	
                 for num in self.diccionario.values():
                     if numero == self.diccionario.values()[num]:
-                        httpCode = "200 OK"
-                        htmlBody = "<html> <head><html><head><meta http-equiv='Refresh' content='0; url= " + self.diccionario.keys()[num] +"'></head><body></body></html></head><body></body></html>\r\n" 
+                        httpCode = "307 Temporary Redirect\nLocation: " + self.diccionario.keys()[num]
+                        htmlBody = "" 
                         break
         elif metodo == "POST":
             cuerpo = cuerpo.split('=', 1)[1]
